@@ -1,0 +1,25 @@
+{
+    "name": "butterfly/app-request-response",
+    "type": "library",
+    "description": "Butterfly PHP. Request-Response Application",
+    "keywords": ["application", "web"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marat Fakhertdinov",
+            "email": "marat.fakhertdinov@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+
+        "butterfly/adapter-sf2-event-dispatcher": "1.0.*",
+        "symfony/http-foundation": "2.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Butterfly\\Application\\RequestResponse\\": "src/",
+            "Butterfly\\Application\\RequestResponse\\Tests\\": "tests/"
+        }
+    }
+}
