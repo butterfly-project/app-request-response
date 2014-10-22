@@ -1,4 +1,4 @@
-imports:
+__import:
   - config/http_foundation.yml
 
 services:
