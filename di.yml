@@ -1,0 +1,15 @@
+__import:
+  - config/http_foundation.yml
+
+services:
+
+  bfy_app.request_response:
+    class: 'Butterfly\Application\RequestResponse\RequestResponseApplication'
+    arguments:
+      - @bfy_adapter.event_dispatcher
+      - @bfy_app.request_response.request_handler.default
+      - @bfy_adapter.http_foundation.request
+
+  bfy_app.request_response.request_handler.default:
+    class: 'Butterfly\Application\RequestResponse\Handler\DefaultRequestHandler'
+    arguments: [@service_container]

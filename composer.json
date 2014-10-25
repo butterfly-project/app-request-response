@@ -13,13 +13,14 @@
     "require": {
         "php": ">=5.3.3",
 
+        "butterfly/dependency-injection": "1.5.*",
         "butterfly/adapter-sf2-event-dispatcher": "1.0.*",
         "symfony/http-foundation": "2.5.*"
     },
     "autoload": {
         "psr-4": {
             "Butterfly\\Application\\RequestResponse\\": "src/",
-            "Butterfly\\Application\\RequestResponse\\Tests\\": "tests/"
+            "Butterfly\\Application\\RequestResponse\\Tests\\": "tests/unit/"
         }
     }
 }

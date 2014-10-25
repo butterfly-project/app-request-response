@@ -1,0 +1,19 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:butterfly-project/app-request-response.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "butterfly/packages": "1.0.*",
+
+        "butterfly/app-request-response": "dev-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Butterfly\\Tests\\": "tests/"
+        }
+    }
+}
