@@ -1,0 +1,6 @@
+services:
+
+  bfy_adapter.http_foundation.session:
+    class: 'Symfony\Component\HttpFoundation\Session\Session'
+    calls: null
+
