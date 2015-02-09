@@ -11,7 +11,6 @@ class ServicesTest extends BaseDiTest
         );
     }
 
-
     public function getDataForTestService()
     {
         return array(
