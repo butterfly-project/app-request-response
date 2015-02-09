@@ -13,9 +13,9 @@
     "require": {
         "php": ">=5.3.3",
 
-        "butterfly/dependency-injection": "1.5.*",
+        "butterfly/dependency-injection": "1.6.*",
         "butterfly/adapter-sf2-event-dispatcher": "1.0.*",
-        "symfony/http-foundation": "2.5.*"
+        "symfony/http-foundation": "2.6.*"
     },
     "autoload": {
         "psr-4": {
