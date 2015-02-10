@@ -5,6 +5,9 @@ namespace Butterfly\Application\RequestResponse\Event;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @author Marat Fakhertdinov <marat.fakhertdinov@gmail.com>
+ */
 class ResponseEvent extends Event
 {
     const EVENT_NAME = 'application.response';

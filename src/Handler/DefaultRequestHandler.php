@@ -8,7 +8,10 @@ use Butterfly\Component\DI\Container;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class DefaultRequestHandler implements IRequestHandler, IRouterAware
+/**
+ * @author Marat Fakhertdinov <marat.fakhertdinov@gmail.com>
+ */
+class DefaultRequestHandler implements IRequestHandler
 {
     /**
      * @var Container
@@ -22,18 +25,12 @@ class DefaultRequestHandler implements IRequestHandler, IRouterAware
 
     /**
      * @param Container $container
-     */
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
-
-    /**
      * @param IRouter $router
      */
-    public function setRouter(IRouter $router)
+    public function __construct(Container $container, IRouter $router)
     {
-        $this->router = $router;
+        $this->container = $container;
+        $this->router    = $router;
     }
 
     /**
@@ -42,9 +39,8 @@ class DefaultRequestHandler implements IRequestHandler, IRouterAware
      */
     public function handle(Request $request)
     {
-        $actionCode = $this->router->getActionCode($request);
-        $action     = $this->getAction($actionCode);
-        $parameters = $this->getParameters($action, $request);
+        list($actionName, $parameters) = $this->router->getAction($request);
+        $action = $this->getAction($actionName);
 
         return call_user_func_array($action, $parameters);
     }
@@ -61,15 +57,5 @@ class DefaultRequestHandler implements IRequestHandler, IRouterAware
         $actionMethod  = $method . 'Action';
 
         return array($actionService, $actionMethod);
-    }
-
-    /**
-     * @param mixed $action
-     * @param Request $request
-     * @return array
-     */
-    protected function getParameters($action, Request $request)
-    {
-        return array($request);
     }
 }

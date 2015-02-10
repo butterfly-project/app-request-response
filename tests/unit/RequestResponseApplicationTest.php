@@ -6,6 +6,9 @@ use Butterfly\Adapter\Sf2EventDispatcher\EventDispatcher;
 use Butterfly\Application\RequestResponse\Handler\IRequestHandler;
 use Butterfly\Application\RequestResponse\RequestResponseApplication;
 
+/**
+ * @author Marat Fakhertdinov <marat.fakhertdinov@gmail.com>
+ */
 class RequestResponseApplicationTest extends \PHPUnit_Framework_TestCase
 {
     public function testRun()
