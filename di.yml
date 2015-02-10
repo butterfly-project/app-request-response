@@ -19,3 +19,6 @@ services:
   bfy_app.routing.complex_routing:
     class: 'Butterfly\Application\RequestResponse\Routing\ComplexRouting'
     arguments: ['%bfy_app.routing.action_name_of_404%', '#bfy_app.routing']
+
+interfaces:
+  'Butterfly\Application\RequestResponse\Routing\IRouterAware': 'bfy_app.routing.complex_routing'

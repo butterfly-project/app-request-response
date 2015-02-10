@@ -7,7 +7,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "butterfly/packages": "1.0.*",
+        "butterfly/packages": "1.2.*",
 
         "butterfly/app-request-response": "dev-dev"
     },
