@@ -5,6 +5,9 @@ namespace Butterfly\Application\RequestResponse\Tests;
 use Butterfly\Application\RequestResponse\Handler\DefaultRequestHandler;
 use Butterfly\Application\RequestResponse\Routing\IRouter;
 
+/**
+ * @author Marat Fakhertdinov <marat.fakhertdinov@gmail.com>
+ */
 class DefaultRequestHandlerTest extends \PHPUnit_Framework_TestCase
 {
     public function forTestAction()
@@ -19,9 +22,9 @@ class DefaultRequestHandlerTest extends \PHPUnit_Framework_TestCase
         $router    = $this->getRouter();
         $router
             ->expects($this->once())
-            ->method('getActionCode')
+            ->method('getAction')
             ->with($request)
-            ->will($this->returnValue('action_service:forTest'));
+            ->will($this->returnValue(array('action_service:forTest', array($request))));
 
         $container = $this->getContainer();
         $container
@@ -30,8 +33,7 @@ class DefaultRequestHandlerTest extends \PHPUnit_Framework_TestCase
             ->with('action_service')
             ->will($this->returnValue($this));
 
-        $handler = new DefaultRequestHandler($container);
-        $handler->setRouter($router);
+        $handler = new DefaultRequestHandler($container, $router);
 
         $result = $handler->handle($request);
 

@@ -1,6 +1,8 @@
 __import:
   - config/http_foundation.yml
 
+bfy_app.routing.action_name_of_404: ''
+
 services:
 
   bfy_app.request_response:
@@ -12,4 +14,11 @@ services:
 
   bfy_app.request_response.request_handler.default:
     class: 'Butterfly\Application\RequestResponse\Handler\DefaultRequestHandler'
-    arguments: [@service_container]
+    arguments: [@service_container, '@Butterfly\Application\RequestResponse\Routing\IRouterAware']
+
+  bfy_app.routing.complex_routing:
+    class: 'Butterfly\Application\RequestResponse\Routing\ComplexRouting'
+    arguments: ['%bfy_app.routing.action_name_of_404%', '#bfy_app.routing']
+
+interfaces:
+  'Butterfly\Application\RequestResponse\Routing\IRouterAware': 'bfy_app.routing.complex_routing'

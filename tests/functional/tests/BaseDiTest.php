@@ -2,13 +2,12 @@
 
 namespace Butterfly\Tests;
 
+use Butterfly\Component\Packages\PackagesConfig;
 use Butterfly\Component\DI\Container;
-use Butterfly\Component\Packages\ExtendedDiConfig;
 
 abstract class BaseDiTest extends \PHPUnit_Framework_TestCase
 {
     protected static $baseDir;
-    protected static $configPath;
 
     /**
      * @var Container
@@ -17,12 +16,11 @@ abstract class BaseDiTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$baseDir    = realpath(__DIR__ . '/..');
-        self::$configPath = self::$baseDir . '/var/config.php';
+        self::$baseDir = realpath(__DIR__ . '/..');
 
-        ExtendedDiConfig::buildForComposer(self::$baseDir, self::$configPath, static::getAdditionalConfigPaths());
+        $config = PackagesConfig::buildForComposer(self::$baseDir, static::getAdditionalConfigPaths());
 
-        self::$container = new Container(require self::$configPath);
+        self::$container = new Container($config);
     }
 
     /**
@@ -31,10 +29,5 @@ abstract class BaseDiTest extends \PHPUnit_Framework_TestCase
     protected static function getAdditionalConfigPaths()
     {
         return array();
-    }
-
-    public static function tearDownAfterClass()
-    {
-        unlink(self::$configPath);
     }
 }
