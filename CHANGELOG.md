@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+1.1.0
+-----
+
+Added functionality:
+
+ * Complex adapter
+
 1.0.1
 -----
 
