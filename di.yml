@@ -14,11 +14,8 @@ services:
 
   bfy_app.request_response.request_handler.default:
     class: 'Butterfly\Application\RequestResponse\Handler\DefaultRequestHandler'
-    arguments: [@service_container, '@Butterfly\Application\RequestResponse\Routing\IRouterAware']
+    arguments: [@service_container, '@bfy_app.routing.complex_routing']
 
   bfy_app.routing.complex_routing:
     class: 'Butterfly\Application\RequestResponse\Routing\ComplexRouting'
     arguments: ['%bfy_app.routing.action_name_of_404%', '#bfy_app.routing']
-
-interfaces:
-  'Butterfly\Application\RequestResponse\Routing\IRouterAware': 'bfy_app.routing.complex_routing'
