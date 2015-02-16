@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+1.1.1
+-----
+
+Changes:
+
+ * Updated di configuration
+
 1.1.0
 -----
 
