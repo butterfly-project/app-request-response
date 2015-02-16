@@ -48,20 +48,4 @@ class ServicesTest extends BaseDiTest
     {
         self::$container->getService($serviceName);
     }
-
-    public function getDataForTestInterface()
-    {
-        return array(
-            array('Butterfly\Application\RequestResponse\Routing\IRouterAware'),
-        );
-    }
-
-    /**
-     * @dataProvider getDataForTestInterface
-     * @param string $interfaceName
-     */
-    public function testInterface($interfaceName)
-    {
-        self::$container->getInterface($interfaceName);
-    }
 }

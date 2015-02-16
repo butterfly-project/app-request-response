@@ -2,8 +2,8 @@
 
 namespace Butterfly\Tests;
 
-use Butterfly\Component\Packages\PackagesConfig;
 use Butterfly\Component\DI\Container;
+use Butterfly\Component\Packages\PackagesConfig;
 
 abstract class BaseDiTest extends \PHPUnit_Framework_TestCase
 {
