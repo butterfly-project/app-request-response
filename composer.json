@@ -15,7 +15,7 @@
 
         "butterfly/dependency-injection": "*",
         "butterfly/adapter-sf2-event-dispatcher": "*",
-        "symfony/http-foundation": "2.*"
+        "symfony/http-foundation": "*"
     },
     "autoload": {
         "psr-4": {
