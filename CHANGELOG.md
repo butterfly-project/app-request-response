@@ -1,6 +1,20 @@
 CHANGELOG
 =========
 
+1.1.3
+-----
+
+Changes:
+
+ * Fix yaml bug
+
+1.1.2
+-----
+
+Changes:
+
+ * Fix composer.json
+
 1.1.1
 -----
 
