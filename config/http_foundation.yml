@@ -3,7 +3,7 @@ services:
   bfy_adapter.http_foundation.request:
     factoryStaticMethod: ['Symfony\Component\HttpFoundation\Request', 'createFromGlobals']
     calls:
-      - ['setSession', [@bfy_adapter.http_foundation.session]]
+      - ['setSession', ['@bfy_adapter.http_foundation.session']]
 
   bfy_adapter.http_foundation.session:
     class: 'Symfony\Component\HttpFoundation\Session\Session'
