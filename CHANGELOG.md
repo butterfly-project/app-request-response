@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+1.2.0
+-----
+
+Changes:
+
+ * Added Extended Request Handler
+
 1.1.3
 -----
 

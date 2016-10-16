@@ -3,7 +3,6 @@
 namespace Butterfly\Application\RequestResponse\Handler;
 
 use Butterfly\Application\RequestResponse\Routing\IRouter;
-use Butterfly\Application\RequestResponse\Routing\IRouterAware;
 use Butterfly\Component\DI\Container;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
