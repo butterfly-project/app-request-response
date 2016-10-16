@@ -9,13 +9,19 @@ services:
     class: 'Butterfly\Application\RequestResponse\RequestResponseApplication'
     arguments:
       - '@bfy_adapter.event_dispatcher'
-      - '@bfy_app.request_response.request_handler.default'
+      - '@app.system.request_handler'
       - '@bfy_adapter.http_foundation.request'
 
   bfy_app.request_response.request_handler.default:
     class: 'Butterfly\Application\RequestResponse\Handler\DefaultRequestHandler'
     arguments: ['@service_container', '@bfy_app.routing.complex_routing']
 
+  bfy_app.request_response.request_handler.extended:
+    class: 'Butterfly\Application\RequestResponse\Handler\ExtendedRequestHandler'
+    arguments: ['@service_container', '@bfy_app.routing.complex_routing', '@app.system.render', '%parameters/annotations']
+
   bfy_app.routing.complex_routing:
     class: 'Butterfly\Application\RequestResponse\Routing\ComplexRouting'
     arguments: ['%bfy_app.routing.action_name_of_404%', '#bfy_app.routing']
+
+  app.system.request_handler: '@bfy_app.request_response.request_handler.default'
