@@ -24,4 +24,4 @@ services:
     class: 'Butterfly\Application\RequestResponse\Routing\ComplexRouting'
     arguments: ['%bfy_app.routing.action_name_of_404%', '#bfy_app.routing']
 
-  app.system.request_handler: '@bfy_app.request_response.request_handler.default'
+  app.system.request_handler: { alias: 'bfy_app.request_response.request_handler.default' }
