@@ -55,6 +55,7 @@ class RequestResponseApplication
 
         $this->eventDispatcher->dispatch(ResponseEvent::EVENT_NAME, new ResponseEvent($response));
 
+        $response->prepare($this->request);
         $response->send();
     }
 }
